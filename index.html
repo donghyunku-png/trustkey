@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrustKey — 패스워드 없는 미래, 가장 안전하게. | 한국 FIDO2 보안키</title>
+<meta name="description" content="TrustKey는 세계 최초 FIDO2 Level 2 인증 보안키 제조사입니다. 지문 인식부터 터치 기반 인증까지, 한국 금융·공공·기업의 제로트러스트를 완성합니다.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="TrustKey — 패스워드 없는 미래, 가장 안전하게.">
+<meta property="og:description" content="세계 최초이자 유일한 FIDO2 Level 2 인증 보안키. 노키아·국내 주요 금융권이 선택한 한국 FIDO 리더.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/assets/brand/logo.png">
+
+<!-- Schema.org Organization (GEO 최적화) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TrustKey",
+  "alternateName": ["트러스트키", "TrustKey Solutions"],
+  "url": "https://www.trustkey.kr",
+  "logo": "https://www.trustkey.kr/assets/brand/logo.png",
+  "description": "FIDO2 Level 2 세계 최초·유일 인증 보안키 제조사. 한국 기반 글로벌 FIDO 인증 리더.",
+  "foundingDate": "2017",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "테헤란로22길 14 중유빌딩 2층",
+    "addressLocality": "강남구",
+    "addressRegion": "서울",
+    "postalCode": "06236",
+    "addressCountry": "KR"
+  },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "+82-2-556-7878",
+    "contactType": "sales",
+    "email": "sales@trustkey.kr"
+  }],
+  "memberOf": [
+    {"@type": "Organization", "name": "FIDO Alliance"},
+    {"@type": "Organization", "name": "Microsoft Intelligent Security Association"}
+  ]
+}
+</script>
+<!-- Schema.org FAQ (GEO 최적화) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "TrustKey와 YubiKey의 차이점은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TrustKey는 한국에서 설계·제조되는 FIDO2 보안키로, 세계 최초이자 유일한 FIDO2 Level 2 인증(G 시리즈)을 보유하고 있습니다. YubiKey는 FIDO2 Level 1 수준이며, TrustKey는 한국 내 전파인증을 전 제품에 보유해 통관 이슈가 없고, 금융·공공 부문에서 KISA/FIDO Korea 검증을 거친 솔루션을 공급합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "기업용 TrustKey 도입 비용은 어떻게 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TrustKey는 초기 도입 부담을 낮추기 위해 500~1,000명 기업 기준 1인당 월 500원 수준의 구독형 과금 프로그램을 제공합니다. 자세한 견적은 sales@trustkey.kr로 문의하시면 규모·업종별 맞춤 제안이 가능합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TrustKey는 Microsoft Azure AD / Microsoft 365에서 동작하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. TrustKey는 대한민국 최초의 Microsoft Intelligent Security Association(MISA) 멤버로, Azure AD 및 Microsoft 365와 완벽히 호환됩니다. 온라인·오프라인(에어플레인) 모드 모두에서 PC 로그인과 웹 애플리케이션 인증이 가능합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "한국에서 FIDO2 보안키를 제조하는 업체는 어디가 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "대한민국에서 자체 FIDO2 보안키를 설계·제조하는 대표 업체는 TrustKey(eWBM 자회사)입니다. TrustKey는 자체 개발한 Secure MCU MS500을 기반으로 G 시리즈(지문), T 시리즈(터치), B 시리즈(Windows Hello)를 공급하며, 노키아·오스트리아 현지기업·국내 제1금융권에 납품한 레퍼런스를 보유하고 있습니다."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+/* ==========================================================================
+   TrustKey — Redesign Prototype
+   Brand: #4169C7 (TrustKey Blue)
+   Tone: Refined editorial B2B — Swiss grid + warm serif accents
+   ========================================================================== */
+
+:root {
+  --brand: #4169C7;
+  --brand-dark: #2E4DA0;
+  --brand-soft: #EEF2FB;
+  --ink: #0A0E1A;
+  --ink-2: #2B3245;
+  --ink-3: #5C6479;
+  --ink-4: #8B93A7;
+  --line: #E4E7EE;
+  --line-soft: #F1F3F7;
+  --bg: #FAFAF7;
+  --white: #FFFFFF;
+  --accent: #E8532C;
+  --radius: 4px;
+  --max: 1280px;
+  --grid-gap: 24px;
+  --font-kr: "Pretendard", -apple-system, system-ui, sans-serif;
+  --font-en: "Inter", "Pretendard", sans-serif;
+  --font-display: "Instrument Serif", "Noto Serif KR", Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-kr);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: opacity 0.15s ease; }
+a:hover { opacity: 0.7; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+::selection { background: var(--brand); color: var(--white); }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+
+/* ==========================================================================
+   Top utility bar
+   ========================================================================== */
+.topbar {
+  background: var(--ink);
+  color: var(--ink-4);
+  font-size: 13px;
+  padding: 10px 0;
+  letter-spacing: -0.01em;
+}
+.topbar .container { display: flex; align-items: center; justify-content: flex-end; gap: 28px; }
+.topbar a { color: #C9CEDA; }
+.topbar a:hover { color: var(--white); opacity: 1; }
+.topbar .lang { color: var(--white); font-weight: 500; }
+.topbar .lang::before { content: ""; display: inline-block; width: 1px; height: 12px; background: #3B4256; margin-right: 28px; vertical-align: middle; }
+
+/* ==========================================================================
+   Primary navigation
+   ========================================================================== */
+.nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: saturate(140%) blur(12px);
+  background: rgba(255,255,255,0.92);
+}
+.nav .container { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo img { height: 28px; width: auto; }
+.nav-logo-text {
+  font-family: var(--font-en);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+}
+.nav-menu { display: flex; gap: 36px; align-items: center; }
+.nav-menu a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-2);
+  letter-spacing: -0.01em;
+  position: relative;
+  padding: 8px 0;
+}
+.nav-menu a:hover { color: var(--brand); opacity: 1; }
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--brand);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  letter-spacing: -0.01em;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--brand-dark); opacity: 1; }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  padding: 120px 0 100px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 800px 400px at 85% 20%, rgba(65,105,199,0.08), transparent 60%),
+    radial-gradient(ellipse 600px 300px at 10% 80%, rgba(232,83,44,0.04), transparent 60%),
+    var(--bg);
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 900px 500px at 50% 40%, black, transparent 80%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  padding: 6px 12px;
+  background: var(--brand-soft);
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+.hero-kicker::before {
+  content: "";
+  width: 6px; height: 6px; background: var(--brand); border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(65,105,199,0.15);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 96px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  max-width: 1000px;
+  margin-bottom: 32px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--brand);
+}
+.hero-sub {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 620px;
+  margin-bottom: 44px;
+  letter-spacing: -0.01em;
+}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius);
+  transition: all 0.18s ease;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--brand); opacity: 1; }
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink-2);
+}
+.btn-secondary:hover { background: var(--ink); color: var(--white); opacity: 1; }
+.btn svg { width: 16px; height: 16px; }
+
+.hero-stats {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+}
+.hero-stat { padding-right: 24px; }
+.hero-stat + .hero-stat { border-left: 1px solid var(--line); padding-left: 24px; }
+.hero-stat .num {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.hero-stat .num em { font-style: italic; color: var(--brand); }
+.hero-stat .label {
+  font-size: 13px;
+  color: var(--ink-3);
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Logo belt
+   ========================================================================== */
+.logo-belt {
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+.logo-belt-label {
+  text-align: center;
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 40px;
+}
+.logo-belt-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+.logo-belt-grid img {
+  max-height: 36px;
+  width: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+.logo-belt-grid img:hover { filter: grayscale(0); opacity: 1; }
+
+/* ==========================================================================
+   Section scaffolding
+   ========================================================================== */
+.section { padding: 120px 0; }
+.section-header { max-width: 760px; margin-bottom: 64px; }
+.section-eyebrow {
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.section-title em { font-style: italic; color: var(--brand); }
+.section-sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-3);
+  letter-spacing: -0.005em;
+  max-width: 640px;
+}
+
+/* ==========================================================================
+   Value props — 4 card grid
+   ========================================================================== */
+.values {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-left: 1px solid var(--line);
+}
+.value-card {
+  padding: 48px 36px;
+  border-right: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  transition: background 0.2s ease;
+}
+.value-card:hover { background: var(--bg); }
+.value-card .icon {
+  width: 40px; height: 40px;
+  color: var(--brand);
+  margin-bottom: 24px;
+}
+.value-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.value-card p {
+  font-size: 15px;
+  color: var(--ink-3);
+  letter-spacing: -0.005em;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   How It Works
+   ========================================================================== */
+.how {
+  background: var(--ink);
+  color: var(--white);
+  position: relative;
+}
+.how .section-title { color: var(--white); }
+.how .section-sub { color: #A8B0C3; }
+.how .section-eyebrow { color: #6B88D4; }
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap);
+}
+.how-step {
+  padding: 40px 32px;
+  background: #11162A;
+  border: 1px solid #1E2640;
+  border-radius: var(--radius);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.how-step:hover {
+  background: #141A33;
+  border-color: var(--brand);
+}
+.how-step-num {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--brand);
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -0.04em;
+}
+.how-step h3 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+.how-step p {
+  color: #A8B0C3;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Products
+   ========================================================================== */
+.products { background: var(--bg); }
+.products-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.products-header .section-sub { margin-bottom: 0; }
+.products-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.products-chip {
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.products-chip:hover, .products-chip.active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px -16px rgba(10, 14, 26, 0.12);
+  border-color: var(--brand);
+}
+.product-card-img {
+  aspect-ratio: 4/3;
+  background: linear-gradient(180deg, #F5F7FB, #E9ECF3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+.product-card-img img { max-height: 100%; width: auto; object-fit: contain; }
+.product-card-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 2px;
+}
+.product-card-body { padding: 28px 24px; flex: 1; display: flex; flex-direction: column; }
+.product-card-series {
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--brand);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.product-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.product-card-tagline {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.product-card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.product-card-meta span {
+  font-size: 11px;
+  padding: 4px 8px;
+  background: var(--line-soft);
+  color: var(--ink-2);
+  border-radius: 2px;
+  font-weight: 500;
+}
+.product-card-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.product-card-link::after { content: "→"; transition: transform 0.2s ease; }
+.product-card:hover .product-card-link::after { transform: translateX(4px); }
+
+/* ==========================================================================
+   Solutions by Industry
+   ========================================================================== */
+.solutions { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.solution-card {
+  aspect-ratio: 4/5;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--ink);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--white);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.solution-card:hover { transform: translateY(-4px); }
+.solution-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+.solution-card:hover::before { opacity: 0.6; }
+.solution-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,14,26,0.4) 0%, rgba(10,14,26,0.95) 80%);
+  z-index: 1;
+}
+.solution-card > * { position: relative; z-index: 2; }
+.solution-fin::before {
+  background: linear-gradient(135deg, #1A2A5C 0%, #4169C7 100%);
+}
+.solution-pub::before {
+  background: linear-gradient(135deg, #2D1E50 0%, #6B4DC2 100%);
+}
+.solution-ent::before {
+  background: linear-gradient(135deg, #0A2E3B 0%, #2E8BA8 100%);
+}
+.solution-mfg::before {
+  background: linear-gradient(135deg, #3D1A1A 0%, #A04040 100%);
+}
+.solution-card .tag {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.solution-card h3 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.solution-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 20px;
+}
+.solution-card .arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Testimonial
+   ========================================================================== */
+.testimonial {
+  background:
+    linear-gradient(180deg, rgba(65,105,199,0.92) 0%, rgba(46,77,160,0.95) 100%),
+    url('assets/lifestyle/tech_chip.jpg') center/cover;
+  color: var(--white);
+  padding: 120px 0;
+  position: relative;
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.testimonial .quote-mark {
+  font-family: var(--font-display);
+  font-size: 140px;
+  line-height: 0.7;
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+}
+.testimonial blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 24px 0 40px;
+  color: var(--white);
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.25);
+}
+.testimonial-author-text .name { font-weight: 600; font-size: 16px; }
+.testimonial-author-text .role { font-size: 14px; color: rgba(255,255,255,0.7); }
+.testimonial-side {
+  padding: 48px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+}
+.testimonial-side h4 {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+.testimonial-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.testimonial-metric .v {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.testimonial-metric .k { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+/* ==========================================================================
+   Knowledge Hub
+   ========================================================================== */
+.knowledge { background: var(--bg); }
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.knowledge-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  min-height: 320px;
+}
+.knowledge-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-4px);
+}
+.knowledge-type {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  margin-bottom: 28px;
+  width: fit-content;
+  color: var(--ink-2);
+}
+.knowledge-type.guide { color: var(--brand); border-color: var(--brand); }
+.knowledge-type.whitepaper { color: var(--accent); border-color: var(--accent); }
+.knowledge-type.ebook { color: #5B3DBF; border-color: #5B3DBF; }
+.knowledge-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: var(--ink);
+  flex: 1;
+}
+.knowledge-card p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+.knowledge-card .read {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.knowledge-card .read::after { content: "→"; }
+
+/* ==========================================================================
+   Newsroom (Admin managed boards)
+   ========================================================================== */
+.newsroom { background: var(--white); border-top: 1px solid var(--line); }
+.newsroom-tabs {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 48px;
+  border-bottom: 1px solid var(--line);
+}
+.newsroom-tab {
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 16px 0;
+  color: var(--ink-4);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: all 0.15s ease;
+}
+.newsroom-tab.active { color: var(--ink); border-bottom-color: var(--ink); }
+.newsroom-tab:hover { color: var(--ink); }
+
+.newsroom-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 32px;
+}
+.news-item {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+  height: 100%;
+}
+.news-featured {
+  grid-row: span 3;
+  border: none;
+  padding: 0;
+}
+.news-featured-img {
+  aspect-ratio: 16/10;
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(135deg, #EEF2FB, #D4DCF0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.news-featured-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,14,26,0.1));
+}
+.news-featured-img img {
+  width: 70%;
+  height: auto;
+  opacity: 0.9;
+}
+.news-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  font-family: var(--font-en);
+  color: var(--ink-4);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.news-meta .cat { color: var(--brand); }
+.news-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  color: var(--ink);
+  flex: 1;
+}
+.news-featured h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+.news-item p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+.news-item a.more {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.news-item a.more::after { content: "→"; }
+
+.newsroom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.newsroom-footer p { font-size: 14px; color: var(--ink-3); }
+.newsroom-footer a {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  color: var(--ink);
+}
+.newsroom-footer a:hover { background: var(--ink); color: var(--white); opacity: 1; }
+
+/* ==========================================================================
+   CTA Band
+   ========================================================================== */
+.cta-band {
+  background: var(--ink);
+  color: var(--white);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 90% 50%, rgba(65,105,199,0.3), transparent 70%),
+    radial-gradient(ellipse 400px 300px at 10% 30%, rgba(232,83,44,0.08), transparent 70%);
+}
+.cta-band .container { position: relative; z-index: 1; }
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.cta-band h2 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+.cta-band h2 em { font-style: italic; color: #8FAEDF; }
+.cta-band p {
+  font-size: 18px;
+  color: #A8B0C3;
+  line-height: 1.55;
+  max-width: 500px;
+}
+.cta-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cta-option {
+  background: #141A33;
+  border: 1px solid #1E2640;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.18s ease;
+}
+.cta-option:hover {
+  border-color: var(--brand);
+  background: #1A2140;
+  opacity: 1;
+}
+.cta-option-text h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.cta-option-text p { font-size: 13px; color: #A8B0C3; }
+.cta-option-arrow {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  background: var(--white);
+  color: var(--ink-2);
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--line);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+.footer-brand { max-width: 300px; }
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.footer-brand-logo img { height: 28px; }
+.footer-brand-logo-text {
+  font-family: var(--font-en);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--brand);
+}
+.footer-brand p {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.footer-cert {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-cert span {
+  font-size: 11px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  color: var(--ink-3);
+  border-radius: 2px;
+}
+.footer-col h5 {
+  font-family: var(--font-en);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a {
+  font-size: 14px;
+  color: var(--ink-3);
+  letter-spacing: -0.005em;
+}
+.footer-col a:hover { color: var(--brand); opacity: 1; }
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink-4);
+}
+.footer-bottom-links { display: flex; gap: 24px; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-menu { gap: 24px; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid, .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+  .knowledge-grid { grid-template-columns: 1fr 1fr; }
+  .knowledge-card:last-child { grid-column: span 2; }
+  .newsroom-layout { grid-template-columns: 1fr 1fr; }
+  .news-featured { grid-row: span 2; grid-column: span 2; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .hero-stat, .hero-stat + .hero-stat { border: none; padding: 0; }
+  .logo-belt-grid { grid-template-columns: repeat(5, 1fr); gap: 32px 24px; }
+  .testimonial-grid, .cta-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .footer-brand { grid-column: span 3; max-width: none; margin-bottom: 24px; }
+}
+@media (max-width: 700px) {
+  .container { padding: 0 20px; }
+  .section { padding: 80px 0; }
+  .hero { padding: 80px 0 60px; }
+  .topbar { display: none; }
+  .nav-menu { display: none; }
+  .values-grid, .products-grid, .solutions-grid, .knowledge-grid, .newsroom-layout {
+    grid-template-columns: 1fr;
+  }
+  .news-featured { grid-column: span 1; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .products-header { grid-template-columns: 1fr; }
+  .products-nav { justify-content: flex-start; }
+  .newsroom-footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: span 2; }
+  .footer-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     Top utility bar
+     ========================================================================== -->
+<div class="topbar">
+  <div class="container">
+    <a href="#investors">Investors</a>
+    <a href="#partners">Partners</a>
+    <a href="#support">Support</a>
+    <a href="#contact">Contact Sales</a>
+    <a href="#" class="lang">KR / EN</a>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     Primary nav
+     ========================================================================== -->
+<nav class="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <img src="assets/brand/logo_mark.png" alt="TrustKey">
+      <span class="nav-logo-text">trustkey</span>
+    </a>
+    <div class="nav-menu">
+      <a href="#products">Products</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#resources">Resources</a>
+      <a href="#newsroom">Newsroom</a>
+      <a href="#about">About</a>
+    </div>
+    <a href="#contact" class="nav-cta">
+      도입 문의
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 12l4-4-4-4"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- ==========================================================================
+     Hero
+     ========================================================================== -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-kicker">세계 최초 FIDO2 Level 2 인증</span>
+    <h1>패스워드 없는 미래,<br>가장 <em>안전하게.</em></h1>
+    <p class="hero-sub">
+      TrustKey는 한국에서 설계·제조하는 FIDO 보안키입니다. 지문 한 번의 터치로 모든 로그인을 대체하고, 피싱과 계정 탈취를 원천 차단합니다.
+    </p>
+    <div class="hero-ctas">
+      <a href="#products" class="btn btn-primary">
+        제품 살펴보기
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 12l4-4-4-4"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-secondary">기업 도입 상담</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num"><em>L2</em></div>
+        <div class="label">FIDO2 Level 2<br>세계 최초·유일 인증</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">8<em>万</em>+</div>
+        <div class="label">노키아 직원 전원 대상<br>엔터프라이즈 배포</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">1<em>st</em></div>
+        <div class="label">대한민국 최초<br>Microsoft MISA 멤버</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">500<em>원</em></div>
+        <div class="label">월 1인당 비용<br>(500~1,000명 기준)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Logo belt
+     ========================================================================== -->
+<section class="logo-belt">
+  <div class="container">
+    <p class="logo-belt-label">Trusted by global & enterprise leaders</p>
+    <div class="logo-belt-grid">
+      <img src="assets/partners/part01.png" alt="Amazon">
+      <img src="assets/partners/part02.png" alt="Citrix">
+      <img src="assets/partners/part03.png" alt="FIDO Alliance">
+      <img src="assets/partners/part04.png" alt="Partner 4">
+      <img src="assets/partners/part05.png" alt="Intercede">
+      <img src="assets/partners/part06.png" alt="Partner 6">
+      <img src="assets/partners/part07.png" alt="Keylogix">
+      <img src="assets/partners/part08.png" alt="Partner 8">
+      <img src="assets/partners/part09.png" alt="Partner 9">
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Value Props
+     ========================================================================== -->
+<section class="values">
+  <div class="values-grid">
+    <div class="value-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2L3 7v6c0 5 4 9 9 10 5-1 9-5 9-10V7l-9-5z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+      <h3>피싱 원천 차단</h3>
+      <p>공개 키 암호화와 하드웨어 루트 신뢰로 피싱, 중간자 공격, 계정 탈취를 물리적으로 차단합니다.</p>
+    </div>
+    <div class="value-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 7v5l3 3"/>
+      </svg>
+      <h3>1초 로그인</h3>
+      <p>지문 한 번의 터치로 모든 인증 완료. SMS OTP 대기 시간도, 앱 전환도, 비밀번호 관리도 사라집니다.</p>
+    </div>
+    <div class="value-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M3 9h18M9 21V9"/>
+      </svg>
+      <h3>즉시 확장 배포</h3>
+      <p>Azure AD, Microsoft 365, Google Workspace, Okta와 즉시 호환. 전사 배포까지 9개월 이내 가능합니다.</p>
+    </div>
+    <div class="value-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2l2 4 5 1-4 4 1 5-4-2-4 2 1-5-4-4 5-1z"/>
+      </svg>
+      <h3>한국 레퍼런스</h3>
+      <p>국내 제1금융권, 공공기관, 대기업 그룹사 납품. 전파인증·KISA 검증 완료된 국산 FIDO2 리더.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     How It Works
+     ========================================================================== -->
+<section class="how section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">How it works</span>
+      <h2 class="section-title">세 단계면 끝. <em>배포는 더 간단.</em></h2>
+      <p class="section-sub">
+        복잡한 MDM 세팅도, 별도 앱 설치도 필요 없습니다. USB에 꽂고, 지문 등록하고, 로그인합니다.
+      </p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-step-num">01</div>
+        <h3>꽂기</h3>
+        <p>USB-A 또는 USB-C 포트에 TrustKey를 삽입합니다. 드라이버 설치는 불필요합니다. Windows·macOS·Linux 모두 Plug &amp; Play.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">02</div>
+        <h3>터치 / 지문</h3>
+        <p>T 시리즈는 표면 터치, G·B 시리즈는 지문 센서에 손가락을 올립니다. 지문 데이터는 키 외부로 절대 유출되지 않습니다.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">03</div>
+        <h3>자동 로그인</h3>
+        <p>비밀번호, OTP, 보안 문자 입력 없이 즉시 인증 완료. Azure AD, M365, Google Workspace, Okta에 그대로 연결됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Products
+     ========================================================================== -->
+<section class="products section" id="products">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <span class="section-eyebrow">Product lineup</span>
+        <h2 class="section-title">조직에 맞는 <em>보안키</em>.</h2>
+        <p class="section-sub">
+          지문 생체 인증의 G 시리즈, 터치 기반 경량 T 시리즈, Windows Hello 완전 통합 B 시리즈. 폼팩터와 인증 방식을 선택하세요.
+        </p>
+      </div>
+      <div class="products-nav">
+        <span class="products-chip active">전체</span>
+        <span class="products-chip">지문 (G)</span>
+        <span class="products-chip">터치 (T)</span>
+        <span class="products-chip">Hello (B)</span>
+      </div>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-card-img">
+          <span class="product-card-badge">FIDO2 L2</span>
+          <img src="assets/products/g310.jpg" alt="TrustKey G310">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-series">G-Series</div>
+          <h3>G310</h3>
+          <p class="product-card-tagline">USB-A 폼팩터 지문 인식 보안키. 세계 최초 FIDO2 Level 2 인증.</p>
+          <div class="product-card-meta">
+            <span>USB-A</span><span>지문</span><span>FIDO2 L2</span>
+          </div>
+          <a href="#" class="product-card-link">자세히 보기</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <span class="product-card-badge">FIDO2 L2</span>
+          <img src="assets/products/g320.jpg" alt="TrustKey G320">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-series">G-Series</div>
+          <h3>G320</h3>
+          <p class="product-card-tagline">USB-C 지문 인식 모델. 최신 노트북·모바일 생태계 대응.</p>
+          <div class="product-card-meta">
+            <span>USB-C</span><span>지문</span><span>FIDO2 L2</span>
+          </div>
+          <a href="#" class="product-card-link">자세히 보기</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <span class="product-card-badge">Multi-Proto</span>
+          <img src="assets/products/t110.jpg" alt="TrustKey T110">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-series">T-Series</div>
+          <h3>T110</h3>
+          <p class="product-card-tagline">경량 터치 보안키. HOTP·TOTP 포함 멀티 프로토콜 지원.</p>
+          <div class="product-card-meta">
+            <span>USB-A</span><span>터치</span><span>OTP</span>
+          </div>
+          <a href="#" class="product-card-link">자세히 보기</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-card-img">
+          <span class="product-card-badge">Multi-Proto</span>
+          <img src="assets/products/t120.jpg" alt="TrustKey T120">
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-series">T-Series</div>
+          <h3>T120</h3>
+          <p class="product-card-tagline">USB-C 터치 모델. 최대 200개 레지던트 키 저장.</p>
+          <div class="product-card-meta">
+            <span>USB-C</span><span>터치</span><span>200 keys</span>
+          </div>
+          <a href="#" class="product-card-link">자세히 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Solutions by Industry
+     ========================================================================== -->
+<section class="solutions section" id="solutions">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Solutions by industry</span>
+      <h2 class="section-title">산업별 <em>제로트러스트</em>를 설계합니다.</h2>
+      <p class="section-sub">
+        금융 전자금융감독규정, 공공 망분리·제로트러스트 가이드라인, 제조업 OT 보안까지 — TrustKey는 각 산업의 규제·운영 환경에 맞는 인증 아키텍처를 함께 설계합니다.
+      </p>
+    </div>
+    <div class="solutions-grid">
+      <div class="solution-card solution-fin">
+        <span class="tag">Financial Services</span>
+        <div>
+          <h3>금융권</h3>
+          <p>제1금융권 납품 레퍼런스. FIDO 생체인증 의무화 대응, 임직원 내부망·외부망 통합 인증.</p>
+          <span class="arrow">자세히 →</span>
+        </div>
+      </div>
+      <div class="solution-card solution-pub">
+        <span class="tag">Public Sector</span>
+        <div>
+          <h3>공공·국방</h3>
+          <p>과기부 제로트러스트 가이드라인 부합. 온·오프라인 모드 모두 동작, 에어갭 환경 대응.</p>
+          <span class="arrow">자세히 →</span>
+        </div>
+      </div>
+      <div class="solution-card solution-ent">
+        <span class="tag">Enterprise</span>
+        <div>
+          <h3>엔터프라이즈</h3>
+          <p>Azure AD·M365·Okta 즉시 연동. 노키아 8만 직원 전사 배포 사례 보유.</p>
+          <span class="arrow">자세히 →</span>
+        </div>
+      </div>
+      <div class="solution-card solution-mfg">
+        <span class="tag">Manufacturing · OT</span>
+        <div>
+          <h3>제조·OT</h3>
+          <p>공장 생산라인 PC, 연구소 CAD 워크스테이션. 공용 계정 폐지와 감사 추적 강화.</p>
+          <span class="arrow">자세히 →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Testimonial
+     ========================================================================== -->
+<section class="testimonial">
+  <div class="container">
+    <div class="testimonial-grid">
+      <div>
+        <div class="quote-mark">"</div>
+        <blockquote>
+          트러스트키의 FIDO2 Level 2는 단순한 인증서가 아니라, 북유럽의 까다로운 보안 검증을 통과한 유일한 선택지였습니다.
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-author-text">
+            <div class="name">Nokia Corporation</div>
+            <div class="role">Head of Corporate Cybersecurity · Finland</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-side">
+        <h4>Deployment at Scale</h4>
+        <div class="testimonial-metrics">
+          <div class="testimonial-metric">
+            <div class="v">80<span style="font-size:24px">K</span></div>
+            <div class="k">전사 배포<br>임직원 수</div>
+          </div>
+          <div class="testimonial-metric">
+            <div class="v">219<span style="font-size:24px">€B</span></div>
+            <div class="k">보호 대상<br>연매출 규모</div>
+          </div>
+          <div class="testimonial-metric">
+            <div class="v">0</div>
+            <div class="k">도입 후<br>피싱 성공 사례</div>
+          </div>
+          <div class="testimonial-metric">
+            <div class="v">9<span style="font-size:24px">개월</span></div>
+            <div class="k">전사 배포<br>완료 기간</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Knowledge Hub
+     ========================================================================== -->
+<section class="knowledge section" id="resources">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Knowledge hub</span>
+      <h2 class="section-title">FIDO를 <em>깊이 이해</em>합니다.</h2>
+      <p class="section-sub">
+        가이드, 백서, 이북으로 구성된 실전형 자료. CISO 설득부터 RFP 작성까지 바로 쓰이도록 설계했습니다.
+      </p>
+    </div>
+    <div class="knowledge-grid">
+      <div class="knowledge-card">
+        <span class="knowledge-type guide">Guide</span>
+        <h3>비밀번호를 버릴 준비가 되셨나요? 여기서 시작하세요.</h3>
+        <p>전사 패스워드리스 전환을 준비하는 IT 팀을 위한 8주 실행 로드맵과 체크리스트.</p>
+        <a href="#" class="read">가이드 읽기</a>
+      </div>
+      <div class="knowledge-card">
+        <span class="knowledge-type whitepaper">White Paper</span>
+        <h3>2025 기업 FIDO 도입 백서: 금융·공공 규제 대응</h3>
+        <p>전자금융감독규정, 제로트러스트 가이드라인, NIS2가 요구하는 인증 수준과 TrustKey 매핑.</p>
+        <a href="#" class="read">백서 다운로드</a>
+      </div>
+      <div class="knowledge-card">
+        <span class="knowledge-type ebook">eBook</span>
+        <h3>패스키가 왜 로그인 보안의 미래인가</h3>
+        <p>WebAuthn·CTAP2·Passkey의 기술적 원리와 Apple·Google·Microsoft의 상호운용성 이슈 해설.</p>
+        <a href="#" class="read">이북 받기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Newsroom — admin managed
+     ========================================================================== -->
+<section class="newsroom section" id="newsroom">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Newsroom</span>
+      <h2 class="section-title">TrustKey의 <em>최신 소식</em>.</h2>
+    </div>
+    <div class="newsroom-tabs">
+      <div class="newsroom-tab active">보도자료</div>
+      <div class="newsroom-tab">공지사항</div>
+      <div class="newsroom-tab">이벤트</div>
+      <div class="newsroom-tab">블로그</div>
+    </div>
+
+    <div class="newsroom-layout">
+      <!-- Featured article -->
+      <article class="news-item news-featured">
+        <div class="news-featured-img">
+          <img src="assets/brand/logo.png" alt="TrustKey × Semperis">
+        </div>
+        <div class="news-meta">
+          <span class="cat">Partnership</span>
+          <span>2024.12</span>
+          <span>5분 읽기</span>
+        </div>
+        <h3>셈퍼리스, 트러스트키와 파트너십 체결… 한국 시장에 포괄적 디렉토리 보호 서비스 제공</h3>
+        <p>트러스트키는 Active Directory 보호 글로벌 리더 Semperis의 한국 공식 유통·리셀러 파트너로 지정되었습니다. 국내 Global 2000 엔터프라이즈 고객에게 AD 보안 복구 솔루션과 FIDO2 인증을 통합 제공합니다.</p>
+        <a href="#" class="more">전문 보기</a>
+      </article>
+
+      <!-- Column 2 -->
+      <article class="news-item">
+        <div class="news-meta">
+          <span class="cat">Export</span>
+          <span>2024.04</span>
+        </div>
+        <h3>트러스트키, 핀란드 노키아 FIDO 보안키 수출 확정</h3>
+        <p>북유럽 시장의 경쟁사 본거지를 뚫고, 노키아 임직원 8만 명 대상 전사 배포 계약 체결.</p>
+        <a href="#" class="more">읽기</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta">
+          <span class="cat">Market</span>
+          <span>2024.09</span>
+        </div>
+        <h3>오스트리아 현지기업에 트러스트키 솔루션 공급 확정</h3>
+        <p>핀란드 노키아에 이어 유럽 시장 영향력 확장. 오스트리아 금융권 파트너십 공식화.</p>
+        <a href="#" class="more">읽기</a>
+      </article>
+
+      <!-- Column 3 -->
+      <article class="news-item">
+        <div class="news-meta">
+          <span class="cat">Japan</span>
+          <span>2024.07</span>
+        </div>
+        <h3>일본 토종 글로벌 소프트웨어 기업과 일본 시장 노선 확장</h3>
+        <p>신덴과의 파트너십에 이어 일본 FIDO 시장 선점을 위한 전략적 콜라보 추진.</p>
+        <a href="#" class="more">읽기</a>
+      </article>
+      <article class="news-item">
+        <div class="news-meta">
+          <span class="cat">Public</span>
+          <span>2024.06</span>
+        </div>
+        <h3>eWBM, '원키-원패스' 금융·외교 공공부처에 보안키 기술적용 앞둬</h3>
+        <p>바이든 행정부 사이버보안 강화 이후 한국 공공부처 FIDO 도입 본격화.</p>
+        <a href="#" class="more">읽기</a>
+      </article>
+    </div>
+
+    <div class="newsroom-footer">
+      <p>관리자가 게시판에서 추가·수정한 모든 보도자료·공지사항이 여기에 자동으로 노출됩니다.</p>
+      <a href="#">전체 아카이브 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CTA Band
+     ========================================================================== -->
+<section class="cta-band" id="contact">
+  <div class="container">
+    <div class="cta-grid">
+      <div>
+        <h2>조직 규모에 맞는 <em>도입 경로</em>를 선택하세요.</h2>
+        <p>SMB부터 공공·금융까지, 조직 규모와 규제 환경에 맞춘 전담 컨설턴트가 배정됩니다.</p>
+      </div>
+      <div class="cta-options">
+        <a href="#" class="cta-option">
+          <div class="cta-option-text">
+            <h4>개별·중소 기업 (1~500명)</h4>
+            <p>파트너 유통사를 통해 3영업일 내 발송</p>
+          </div>
+          <div class="cta-option-arrow">→</div>
+        </a>
+        <a href="#" class="cta-option">
+          <div class="cta-option-text">
+            <h4>엔터프라이즈 (500명+)</h4>
+            <p>전담 컨설팅 · PoC · 맞춤 과금</p>
+          </div>
+          <div class="cta-option-arrow">→</div>
+        </a>
+        <a href="#" class="cta-option">
+          <div class="cta-option-text">
+            <h4>공공·금융 규제 대응</h4>
+            <p>전파인증 · KISA 검증 완료 솔루션 상담</p>
+          </div>
+          <div class="cta-option-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     Footer
+     ========================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="assets/brand/logo_mark.png" alt="TrustKey">
+          <span class="footer-brand-logo-text">trustkey</span>
+        </div>
+        <p>한국에서 설계·제조하는 FIDO2 Level 2 보안키. 세계 최초의 하드웨어 인증 리더.</p>
+        <div class="footer-cert">
+          <span>FIDO2 L2</span>
+          <span>MS MISA</span>
+          <span>FIDO Alliance</span>
+          <span>KCC</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#">G Series (지문)</a></li>
+          <li><a href="#">T Series (터치)</a></li>
+          <li><a href="#">B Series (Hello)</a></li>
+          <li><a href="#">비교표</a></li>
+          <li><a href="#">제품 자료 다운로드</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#">금융권</a></li>
+          <li><a href="#">공공·국방</a></li>
+          <li><a href="#">엔터프라이즈</a></li>
+          <li><a href="#">제조·OT</a></li>
+          <li><a href="#">FIDO2 API·서버</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="#">초보자 가이드</a></li>
+          <li><a href="#">호환 사이트</a></li>
+          <li><a href="#">서버 기술 지원</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">개발자 문서</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About TrustKey</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact Sales</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 (주)트러스트키 · 서울특별시 강남구 테헤란로22길 14 중유빌딩 2층 · +82-2-556-7878</div>
+      <div class="footer-bottom-links">
+        <a href="#">개인정보처리방침</a>
+        <a href="#">이용약관</a>
+        <a href="#">사이트맵</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Tiny nav highlight + product chip toggle for prototype feel
+document.querySelectorAll('.products-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.products-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+  });
+});
+document.querySelectorAll('.newsroom-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.newsroom-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
